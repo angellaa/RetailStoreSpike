@@ -1,29 +1,18 @@
-﻿using Moq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace RetailStore.Tests
 {
     public class RetailStoreTests
     {
         [Test]
-        public void EmptyScreen()
+        public void ShowOneProduct()
         {
-            var screen = Mock.Of<IScreen>(x => x.Text == "");
-            new RetailStore(screen);
+            var screen = new Screen();
+            var retailStore = new RetailStore(screen);
 
-            Assert.That(screen.Text, Is.EqualTo(""));
-        }
-    }
+            retailStore.OnBarcode("123456");
 
-    public interface IScreen
-    {
-        string Text { get; }
-    }
-
-    public class RetailStore
-    {
-        public RetailStore(IScreen screen)
-        {            
+            Assert.That(screen.Text, Is.EqualTo("$12.34"));
         }
     }
 }
