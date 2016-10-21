@@ -1,8 +1,16 @@
-﻿namespace RetailStore
+﻿using System.Collections.Generic;
+
+namespace RetailStore
 {
     public class RetailStore
     {
         private readonly Screen m_Screen;
+
+        private readonly Dictionary<string, string> products = new Dictionary<string, string>
+        {
+            { "123456", "$12.34" },
+            { "123457", "$1564.34" },
+        };
 
         public RetailStore(Screen screen)
         {
@@ -11,7 +19,15 @@
 
         public void OnBarcode(string barcode)
         {
-            m_Screen.ShowText("$12.34");
+            if (barcode == null || !products.ContainsKey(barcode))
+            {
+                m_Screen.ShowText("Product Not Found");
+                return;
+            }
+
+            var product = products[barcode];
+
+            m_Screen.ShowText(product);
         }
     }
 }
