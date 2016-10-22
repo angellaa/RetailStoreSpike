@@ -9,16 +9,16 @@ namespace RetailStore
             Products = products;
         }
 
-        public Dictionary<string, string> Products { get; }
-
-        public bool ProductIsAbsent(string barcode)
-        {
-            return barcode == null || !Products.ContainsKey(barcode);
-        }
+        private Dictionary<string, string> Products { get; }
 
         public string FindProduct(string barcode)
         {
-            return Products[barcode];
+            return ProductNotFound(barcode) ? null : Products[barcode];
+        }
+
+        private bool ProductNotFound(string barcode)
+        {
+            return barcode == null || !Products.ContainsKey(barcode);
         }
     }
 }
