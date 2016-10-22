@@ -5,34 +5,34 @@ namespace RetailStore.Tests
 {
     public class RetailStoreTests
     {
-        [Test]
-        public void ShowOneProduct()
+        private Screen m_Screen;
+        private RetailStore m_RetailStore;
+
+        [SetUp]
+        public void SetUp()
         {
-            var screen = new Screen();
-            var retailStore = new RetailStore(screen, new Dictionary<string, string>
+            m_Screen = new Screen();
+            m_RetailStore = new RetailStore(m_Screen, new Dictionary<string, string>
             {
                 { "123456", "$12.34" },
                 { "123457", "$1564.34" },
             });
+        }
 
-            retailStore.OnBarcode("123456");
+        [Test]
+        public void ShowOneProduct()
+        {
+            m_RetailStore.OnBarcode("123456");
 
-            Assert.That(screen.Text, Is.EqualTo("$12.34"));
+            Assert.That(m_Screen.Text, Is.EqualTo("$12.34"));
         }
 
         [Test]
         public void ShowASecondProduct()
         {
-            var screen = new Screen();
-            var retailStore = new RetailStore(screen, new Dictionary<string, string>
-            {
-                { "123456", "$12.34" },
-                { "123457", "$1564.34" },
-            });
+            m_RetailStore.OnBarcode("123457");
 
-            retailStore.OnBarcode("123457");
-
-            Assert.That(screen.Text, Is.EqualTo("$1564.34"));
+            Assert.That(m_Screen.Text, Is.EqualTo("$1564.34"));
         }
 
         [TestCase("")]
@@ -40,12 +40,9 @@ namespace RetailStore.Tests
         [TestCase("012345")]
         public void ProductNotFound(string barcode)
         {
-            var screen = new Screen();
-            var retailStore = new RetailStore(screen, null);
+            m_RetailStore.OnBarcode(barcode);
 
-            retailStore.OnBarcode(barcode);
-
-            Assert.That(screen.Text, Is.EqualTo("Product Not Found"));
+            Assert.That(m_Screen.Text, Is.EqualTo("Product Not Found"));
         }
     }
 }
