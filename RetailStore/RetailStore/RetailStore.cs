@@ -6,15 +6,12 @@ namespace RetailStore
     {
         private readonly Screen m_Screen;
 
-        private readonly Dictionary<string, string> products = new Dictionary<string, string>
-        {
-            { "123456", "$12.34" },
-            { "123457", "$1564.34" },
-        };
+        private readonly Dictionary<string, string> products;
 
-        public RetailStore(Screen screen)
+        public RetailStore(Screen screen, Dictionary<string, string> products)
         {
             m_Screen = screen;
+            this.products = products;
         }
 
         public void OnBarcode(string barcode)

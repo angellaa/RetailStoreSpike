@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace RetailStore.Tests
 {
@@ -8,7 +9,11 @@ namespace RetailStore.Tests
         public void ShowOneProduct()
         {
             var screen = new Screen();
-            var retailStore = new RetailStore(screen);
+            var retailStore = new RetailStore(screen, new Dictionary<string, string>
+            {
+                { "123456", "$12.34" },
+                { "123457", "$1564.34" },
+            });
 
             retailStore.OnBarcode("123456");
 
@@ -19,7 +24,11 @@ namespace RetailStore.Tests
         public void ShowASecondProduct()
         {
             var screen = new Screen();
-            var retailStore = new RetailStore(screen);
+            var retailStore = new RetailStore(screen, new Dictionary<string, string>
+            {
+                { "123456", "$12.34" },
+                { "123457", "$1564.34" },
+            });
 
             retailStore.OnBarcode("123457");
 
@@ -32,7 +41,11 @@ namespace RetailStore.Tests
         public void ProductNotFound(string barcode)
         {
             var screen = new Screen();
-            var retailStore = new RetailStore(screen);
+            var retailStore = new RetailStore(screen, new Dictionary<string, string>
+            {
+                { "123456", "$12.34" },
+                { "123457", "$1564.34" },
+            });
 
             retailStore.OnBarcode(barcode);
 
