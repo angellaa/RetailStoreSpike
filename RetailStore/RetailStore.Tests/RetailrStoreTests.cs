@@ -11,12 +11,14 @@ namespace RetailStore.Tests
         [SetUp]
         public void SetUp()
         {
-            m_Screen = new Screen();
-            m_RetailStore = new RetailStore(m_Screen, new Dictionary<string, string>
+            var inventory = new Inventory(new Dictionary<string, string>
             {
                 { "123456", "$12.34" },
                 { "123457", "$1564.34" },
             });
+
+            m_Screen = new Screen();
+            m_RetailStore = new RetailStore(m_Screen, inventory);
         }
 
         [Test]
