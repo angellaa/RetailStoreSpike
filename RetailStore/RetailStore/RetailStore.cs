@@ -15,15 +15,25 @@ namespace RetailStore
 
         public void OnBarcode(string barcode)
         {
-            if (barcode == null || !m_Products.ContainsKey(barcode))
+            if (ProductIsAbsent(barcode))
             {
-                m_Screen.ShowText("Product Not Found");
+                m_Screen.ShowProductNotFound();
                 return;
             }
 
-            var product = m_Products[barcode];
+            var product = FindProduct(barcode);
 
-            m_Screen.ShowText(product);
+            m_Screen.ShowProduct(product);
+        }
+
+        private bool ProductIsAbsent(string barcode)
+        {
+            return barcode == null || !m_Products.ContainsKey(barcode);
+        }
+
+        private string FindProduct(string barcode)
+        {
+            return m_Products[barcode];
         }
     }
 }
