@@ -10,7 +10,7 @@ namespace RetailStore
         public RetailStore(Screen screen, Dictionary<string, string> products)
         {
             m_Screen = screen;
-            m_Products = products;
+            m_Products = products ?? new Dictionary<string, string>();
         }
 
         public void OnBarcode(string barcode)
