@@ -41,11 +41,7 @@ namespace RetailStore.Tests
         public void ProductNotFound(string barcode)
         {
             var screen = new Screen();
-            var retailStore = new RetailStore(screen, new Dictionary<string, string>
-            {
-                { "123456", "$12.34" },
-                { "123457", "$1564.34" },
-            });
+            var retailStore = new RetailStore(screen, null);
 
             retailStore.OnBarcode(barcode);
 
