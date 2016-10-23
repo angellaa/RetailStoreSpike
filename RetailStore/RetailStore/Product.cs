@@ -8,7 +8,5 @@
         {
             Price = price;
         }
-
-        public string PriceAsText => $"${Price}";
     }
 }

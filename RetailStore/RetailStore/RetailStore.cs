@@ -31,7 +31,7 @@ namespace RetailStore
             }
             else
             {
-                m_Screen.ShowProduct(product);
+                m_Screen.ShowPriceAsText(product.Price);
                 m_ScannedProducts.Add(product);
             }
         }

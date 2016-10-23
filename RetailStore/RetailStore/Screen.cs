@@ -4,11 +4,6 @@
     {
         public string Text { get; private set; }
 
-        public void ShowProduct(Product product)
-        {
-            Text = product.PriceAsText;
-        }
-
         public void ShowPriceAsText(decimal price)
         {
             Text = $"${price}";
