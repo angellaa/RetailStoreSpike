@@ -11,9 +11,9 @@ namespace RetailStore
             Text = product;
         }
 
-        public void ShowProductNotFound()
+        public void ShowInvalidBarcode()
         {
-            Text = "Product Not Found";
+            Text = "Invalid barcode: please try to scan the product again.";
         }
 
         internal void ShowProductNotFound(string barcode)

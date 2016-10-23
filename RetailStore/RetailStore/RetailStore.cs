@@ -13,9 +13,9 @@
 
         public void OnBarcode(string barcode)
         {
-            if (string.IsNullOrEmpty(barcode))
+            if (InvalidBarcode(barcode))
             {
-                m_Screen.ShowProductNotFound();
+                m_Screen.ShowInvalidBarcode();
                 return;
             }
 
@@ -29,6 +29,11 @@
             {
                 m_Screen.ShowProduct(product);
             }
+        }
+
+        private static bool InvalidBarcode(string barcode)
+        {
+            return string.IsNullOrEmpty(barcode);
         }
     }
 }

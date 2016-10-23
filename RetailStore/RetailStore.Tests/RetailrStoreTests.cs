@@ -39,11 +39,11 @@ namespace RetailStore.Tests
 
         [TestCase("")]
         [TestCase(null)]
-        public void ProductNotFound(string barcode)
+        public void InvalidBarcode(string barcode)
         {
             m_RetailStore.OnBarcode(barcode);
 
-            Assert.That(m_Screen.Text, Is.EqualTo("Product Not Found"));
+            Assert.That(m_Screen.Text, Is.EqualTo("Invalid barcode: please try to scan the product again."));
         }
 
         [Test]
