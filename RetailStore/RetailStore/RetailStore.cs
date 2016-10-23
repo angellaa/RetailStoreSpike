@@ -8,6 +8,7 @@ namespace RetailStore
         private readonly Screen m_Screen;
         private readonly Inventory m_Inventory;
         private readonly List<Product> m_ScannedProducts = new List<Product>();
+        private int m_AttemptedScans;
 
         public RetailStore(Screen screen, Inventory inventory)
         {
@@ -17,6 +18,8 @@ namespace RetailStore
 
         public void OnBarcode(string barcode)
         {
+            m_AttemptedScans++;
+
             if (InvalidBarcode(barcode))
             {
                 m_Screen.ShowInvalidBarcode();
@@ -43,6 +46,12 @@ namespace RetailStore
 
         public void Total()
         {
+            if (m_AttemptedScans == 0)
+            {
+                m_Screen.ShowNoSaleInProgress();
+                return;
+            }
+
             m_Screen.ShowPriceAsText(m_ScannedProducts.Sum(p => p.Price));
             m_ScannedProducts.Clear();
         }

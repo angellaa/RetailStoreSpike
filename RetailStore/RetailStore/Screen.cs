@@ -18,5 +18,10 @@
         {
             Text = $"Product not found for barcode {barcode}";
         }
+
+        public void ShowNoSaleInProgress()
+        {
+            Text = "No sale in progress. Please try scanning a product.";
+        }
     }
 }

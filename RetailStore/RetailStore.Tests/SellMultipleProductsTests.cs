@@ -67,5 +67,13 @@ namespace RetailStore.Tests
 
             Assert.That(m_Screen.Text, Is.EqualTo("$0"));
         }
+
+        [Test]
+        public void NoSaleInProgress()
+        {
+            m_RetailStore.Total();
+
+            Assert.That(m_Screen.Text, Is.EqualTo("No sale in progress. Please try scanning a product."));
+        }
     }
 }
