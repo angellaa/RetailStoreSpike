@@ -13,11 +13,17 @@
 
         public void OnBarcode(string barcode)
         {
+            if (string.IsNullOrEmpty(barcode))
+            {
+                m_Screen.ShowProductNotFound();
+                return;
+            }
+
             var product = m_Inventory.FindProduct(barcode);
 
             if (product == null)
             {
-                m_Screen.ShowProductNotFound();
+                m_Screen.ShowProductNotFound(barcode);
             }
             else
             {

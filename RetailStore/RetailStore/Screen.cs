@@ -1,4 +1,6 @@
-﻿namespace RetailStore
+﻿using System;
+
+namespace RetailStore
 {
     public class Screen
     {
@@ -12,6 +14,11 @@
         public void ShowProductNotFound()
         {
             Text = "Product Not Found";
+        }
+
+        internal void ShowProductNotFound(string barcode)
+        {
+            Text = $"Product not found for barcode {barcode}";
         }
     }
 }
