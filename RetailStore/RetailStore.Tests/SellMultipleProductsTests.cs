@@ -23,7 +23,7 @@ namespace RetailStore.Tests
         }
 
         [Test]
-        public void SellMultipleProducts()
+        public void AllProductsFound()
         {
             m_RetailStore.OnBarcode("1");
             m_RetailStore.OnBarcode("2");
@@ -34,7 +34,7 @@ namespace RetailStore.Tests
         }
 
         [Test]
-        public void SellMultipleProducts_AfterPreviousSale()
+        public void AllProductsFound_SecondSale()
         {
             m_RetailStore.OnBarcode("1");
             m_RetailStore.Total();
@@ -47,7 +47,7 @@ namespace RetailStore.Tests
         }
 
         [Test]
-        public void SellMultipleProducts_SomeNotFound()
+        public void SomeProductsNotFound()
         {
             m_RetailStore.OnBarcode("1");
             m_RetailStore.OnBarcode("2-NotFound");
@@ -58,7 +58,7 @@ namespace RetailStore.Tests
         }
 
         [Test]
-        public void SellMultipleProducts_NoProductsFound()
+        public void NoProductsFound()
         {
             m_RetailStore.OnBarcode("1-NotFound");
             m_RetailStore.OnBarcode("2-NotFound");
