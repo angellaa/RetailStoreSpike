@@ -1,9 +1,13 @@
-﻿namespace RetailStore
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace RetailStore
 {
     public class RetailStore
     {
         private readonly Screen m_Screen;
         private readonly Inventory m_Inventory;
+        private readonly List<Product> m_ScannedProducts = new List<Product>();
 
         public RetailStore(Screen screen, Inventory inventory)
         {
@@ -28,12 +32,18 @@
             else
             {
                 m_Screen.ShowProduct(product);
+                m_ScannedProducts.Add(product);
             }
         }
 
         private static bool InvalidBarcode(string barcode)
         {
             return string.IsNullOrEmpty(barcode);
+        }
+
+        public void Total()
+        {
+            m_Screen.ShowPriceAsText(m_ScannedProducts.Sum(p => p.Price));
         }
     }
 }

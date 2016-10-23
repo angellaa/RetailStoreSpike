@@ -2,13 +2,13 @@
 {
     public class Product
     {
-        public decimal price;
+        public decimal Price { get; }
 
         public Product(decimal price)
         {
-            this.price = price;
+            Price = price;
         }
 
-        public string PriceAsText => $"${price}";
+        public string PriceAsText => $"${Price}";
     }
 }

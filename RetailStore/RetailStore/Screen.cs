@@ -9,6 +9,11 @@
             Text = product.PriceAsText;
         }
 
+        public void ShowPriceAsText(decimal price)
+        {
+            Text = $"${price}";
+        }
+
         public void ShowInvalidBarcode()
         {
             Text = "Invalid barcode: please try to scan the product again.";
