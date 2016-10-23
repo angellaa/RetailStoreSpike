@@ -32,5 +32,18 @@ namespace RetailStore.Tests
 
             Assert.That(m_Screen.Text, Is.EqualTo("$85.99"));
         }
+
+        [Test]
+        public void SellMultipleProducts_AfterPreviousSale()
+        {
+            m_RetailStore.OnBarcode("1");
+            m_RetailStore.Total();
+
+            m_RetailStore.OnBarcode("1");
+            m_RetailStore.OnBarcode("2");
+            m_RetailStore.Total();
+
+            Assert.That(m_Screen.Text, Is.EqualTo("$20.86"));
+        }
     }
 }
