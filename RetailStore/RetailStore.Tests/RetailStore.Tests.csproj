@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SellMultipleProductsTests.cs" />
-    <Compile Include="SellOneProductTests.cs" />
+    <Compile Include="ScanOneProductTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
