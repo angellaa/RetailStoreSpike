@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace RetailStore.Tests
 {
-    public class RetailStoreTests
+    public class SellOneProductTests
     {
         private Screen m_Screen;
         private RetailStore m_RetailStore;
@@ -22,7 +22,7 @@ namespace RetailStore.Tests
         }
 
         [Test]
-        public void ShowOneProduct()
+        public void SellOneProduct()
         {
             m_RetailStore.OnBarcode("123456");
 
@@ -30,7 +30,7 @@ namespace RetailStore.Tests
         }
 
         [Test]
-        public void ShowASecondProduct()
+        public void SellASecondProduct()
         {
             m_RetailStore.OnBarcode("123457");
 
