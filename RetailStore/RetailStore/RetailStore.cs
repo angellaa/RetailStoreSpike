@@ -53,7 +53,9 @@ namespace RetailStore
             }
 
             m_Screen.ShowPriceAsText(m_ScannedProducts.Sum(p => p.Price));
+
             m_ScannedProducts.Clear();
+            m_AttemptedScans = 0;
         }
     }
 }
