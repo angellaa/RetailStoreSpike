@@ -4,9 +4,14 @@
     {
         public string Text { get; private set; }
 
-        public void ShowPriceAsText(decimal price)
+        public void ShowPrice(decimal price)
         {
             Text = $"${price}";
+        }
+
+        public void ShowTotalPrice(decimal totalPrice)
+        {
+            Text = $"Total: ${totalPrice}";
         }
 
         public void ShowInvalidBarcode()

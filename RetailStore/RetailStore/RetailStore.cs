@@ -34,7 +34,7 @@ namespace RetailStore
             }
             else
             {
-                m_Screen.ShowPriceAsText(product.Price);
+                m_Screen.ShowPrice(product.Price);
                 m_ScannedProducts.Add(product);
             }
         }
@@ -52,7 +52,7 @@ namespace RetailStore
                 return;
             }
 
-            m_Screen.ShowPriceAsText(m_ScannedProducts.Sum(p => p.Price));
+            m_Screen.ShowTotalPrice(m_ScannedProducts.Sum(p => p.Price));
 
             m_ScannedProducts.Clear();
             m_AttemptedScans = 0;
