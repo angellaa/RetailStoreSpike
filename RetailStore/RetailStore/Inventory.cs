@@ -18,7 +18,7 @@ namespace RetailStore
 
         private bool ProductNotFound(string barcode)
         {
-            return barcode == null || !Products.ContainsKey(barcode);
+            return !Products.ContainsKey(barcode);
         }
     }
 }
