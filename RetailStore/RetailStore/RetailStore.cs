@@ -39,12 +39,7 @@ namespace RetailStore
             }
         }
 
-        private static bool InvalidBarcode(string barcode)
-        {
-            return string.IsNullOrEmpty(barcode);
-        }
-
-        public void Total()
+        public void OnTotal()
         {
             if (m_AttemptedScans == 0)
             {
@@ -56,6 +51,11 @@ namespace RetailStore
 
             m_ScannedProducts.Clear();
             m_AttemptedScans = 0;
+        }
+
+        private static bool InvalidBarcode(string barcode)
+        {
+            return string.IsNullOrEmpty(barcode);
         }
     }
 }
