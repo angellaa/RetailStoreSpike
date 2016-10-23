@@ -11,10 +11,10 @@ namespace RetailStore.Tests
         [SetUp]
         public void SetUp()
         {
-            var inventory = new Inventory(new Dictionary<string, string>
+            var inventory = new Inventory(new Dictionary<string, Product>
             {
-                { "123456", "$12.34" },
-                { "123457", "$1564.34" },
+                { "123456", new Product(12.34m) },
+                { "123457", new Product(1564.34m) },
             });
 
             m_Screen = new Screen();

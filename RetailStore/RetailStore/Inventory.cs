@@ -4,14 +4,14 @@ namespace RetailStore
 {
     public class Inventory
     {
-        public Inventory(Dictionary<string, string> products)
+        public Inventory(Dictionary<string, Product> products)
         {
             Products = products;
         }
 
-        private Dictionary<string, string> Products { get; }
+        private Dictionary<string, Product> Products { get; }
 
-        public string FindProduct(string barcode)
+        public Product FindProduct(string barcode)
         {
             return ProductNotFound(barcode) ? null : Products[barcode];
         }

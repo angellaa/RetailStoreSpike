@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace RetailStore
+﻿namespace RetailStore
 {
     public class Screen
     {
         public string Text { get; private set; }
 
-        public void ShowProduct(string product)
+        public void ShowProduct(Product product)
         {
-            Text = product;
+            Text = product.PriceAsText;
         }
 
         public void ShowInvalidBarcode()
