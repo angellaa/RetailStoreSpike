@@ -11,7 +11,7 @@
 
         public void ShowTotalPrice(decimal totalPrice)
         {
-            Text = $"OnTotal: ${totalPrice}";
+            Text = $"Total: ${totalPrice}";
         }
 
         public void ShowInvalidBarcode()

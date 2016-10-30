@@ -27,7 +27,7 @@ namespace RetailStore.Tests
             m_RetailStore.OnBarcode("123456");
             m_RetailStore.OnTotal();
 
-            Assert.That(m_Screen.Text, Is.EqualTo("OnTotal: $12.34"));
+            Assert.That(m_Screen.Text, Is.EqualTo("Total: $12.34"));
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace RetailStore.Tests
             m_RetailStore.OnBarcode("123457");
             m_RetailStore.OnTotal();
 
-            Assert.That(m_Screen.Text, Is.EqualTo("OnTotal: $1564.34"));
+            Assert.That(m_Screen.Text, Is.EqualTo("Total: $1564.34"));
         }
 
         [TestCase("")]
@@ -46,7 +46,7 @@ namespace RetailStore.Tests
             m_RetailStore.OnBarcode(barcode);
             m_RetailStore.OnTotal();
 
-            Assert.That(m_Screen.Text, Is.EqualTo("OnTotal: $0"));
+            Assert.That(m_Screen.Text, Is.EqualTo("Total: $0"));
         }
 
         [Test]
@@ -55,7 +55,6 @@ namespace RetailStore.Tests
             m_RetailStore.OnBarcode("NotFound");
             m_RetailStore.OnTotal();
 
-            Assert.That(m_Screen.Text, Is.EqualTo("OnTotal: $0"));
         }
     }
 }
